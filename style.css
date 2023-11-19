@@ -1,5 +1,9 @@
+*{
+    font-family: 'Roboto Mono', monospace;
+}
+
 #userInput{
-    background-color: rgb(228, 217, 217);
+    background-color: aliceblue;
     width: 75vw;
     height: 15vh;
     border-radius: 15px;
@@ -10,4 +14,18 @@
     font-size: 1.5rem;
     overflow: auto;
     white-space: pre-wrap;
+}
+
+button{
+    cursor: pointer;
+}
+
+#passGenButton{
+    background-color: aliceblue;
+    color: black;
+}
+
+#resetButton{
+    background-color: rgb(238, 55, 55);
+    color: white;
 }
