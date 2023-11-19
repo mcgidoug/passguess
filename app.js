@@ -57,6 +57,6 @@ resetButton.addEventListener('click', function() {
     passGenButton.style.backgroundColor = 'aliceBlue'
     passGenButton.style.color = "black";
     passGenButton.textContent = 'Generate Password';
-    
+    console.clear();
 });
 
