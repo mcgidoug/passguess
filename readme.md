@@ -1,0 +1,2 @@
+# Passguess Description:
+A short JavaScript assignment for students. The purpose of this program is to randomly generate a password from alphabet characters (lowercase and uppercase), numbers, and special characters. The user should be able to input any of those characters and the program will indicate whether the characters they are guessing are correct. 
