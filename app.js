@@ -4,18 +4,21 @@ let clickCount = 0;
 
 // display user input in text box below
 function displayInput() {
-    inputDisplay.textContent = inputElement.value;
+    let userInput = inputDisplay.textContent = inputElement.value;
+    let includedCharacters = "o";
+    if(userInput.includes(includedCharacters)){
+        console.log(userInput)
+    }
 }
 
 // activate passgen button functionality
 function activatePassgen(){
     clickCount++;
-    console.log(clickCount)
     passGenButton.style.backgroundColor = 'green'
     passGenButton.style.color = 'white'
     passGenButton.textContent = `PASSWORD GENERATED ${clickCount} time(s)!`
     const generatedPassword = generatePassword();
-    console.log(generatedPassword)
+    console.log(`Password number ${clickCount}: ${colorize(generatedPassword, '31')}`)
 }
 
 // reset fields
@@ -46,7 +49,12 @@ function generatePassword(){
     return finalPass;
 }
 
-// TODO: loop over user input & password - change color of correct / incorrect characters
+// color highlight console logs
+function colorize(text, colorCode){
+    return `\x1b[${colorCode}m${text}\x1b[0m`;
+}
+
+// TODO: loop over user input & cpu pass: prompt user to add characters
 function checkCharacters(){}
 
 // ========== INPUTS ==========
