@@ -1,4 +1,35 @@
-// ========== PASSGEN FUNCTION ==========
+// ========== FUNCTIONS ==========
+// click count for password generation button
+let clickCount = 0;
+
+// display user input in text box below
+function displayInput() {
+    inputDisplay.textContent = inputElement.value;
+}
+
+// activate passgen button functionality
+function activatePassgen(){
+    clickCount++;
+    console.log(clickCount)
+    passGenButton.style.backgroundColor = 'green'
+    passGenButton.style.color = 'white'
+    passGenButton.textContent = `PASSWORD GENERATED ${clickCount} time(s)!`
+    const generatedPassword = generatePassword();
+    console.log(generatedPassword)
+}
+
+// reset fields
+function resetFields() {
+    passGenButton.style.backgroundColor = 'aliceBlue'
+    passGenButton.style.color = "black";
+    passGenButton.textContent = 'Generate Password';
+    inputElement.value = '';
+    inputDisplay.textContent = '';
+    clickCount = 0;
+    console.clear();
+}
+
+// generate password
 function generatePassword(){
     const lowerAlpha = "abcdefghijklmnopqrstuvwxyz";
     const upperAlpha = lowerAlpha.toUpperCase();
@@ -15,57 +46,39 @@ function generatePassword(){
     return finalPass;
 }
 
-// ========== USER INPUT ==========
+// TODO: loop over user input & password - change color of correct / incorrect characters
+function checkCharacters(){}
+
+// ========== INPUTS ==========
+// input field
 const inputElement = document.createElement('input');
 document.body.appendChild(inputElement)
 inputElement.setAttribute('id', 'inputElement');
 inputElement.placeholder = "your guess here"
 
-// ========== PASS GEN BUTTON ==========
+// pass gen button
 const passGenButton = document.createElement('button');
 document.body.appendChild(passGenButton)
 passGenButton.textContent = 'Generate Password';
 passGenButton.setAttribute('id', 'passGenButton')
 
-// ========== RESET BUTTON ==========
+// reset button
 const resetButton = document.createElement('button');
 document.body.appendChild(resetButton);
 resetButton.textContent = 'RESET';
 resetButton.setAttribute('id', 'resetButton')
 
-// ========== USER INPUT DISPLAY & CHECKING ==========
+// display box
 let inputDisplay = document.createElement('div');
 document.body.appendChild(inputDisplay) 
 inputDisplay.setAttribute('id', 'userInput')
 
-
 // ========== EVENT LISTENERS ==========
-// input div
-inputElement.addEventListener('input', function() {
-    inputDisplay.textContent = inputElement.value;
-});
+// input field
+inputElement.addEventListener('input', displayInput);
 
 // passgen button
-let clickCount = 0;
-
-passGenButton.addEventListener('click', function() {
-    clickCount++;
-    console.log(clickCount)
-    passGenButton.style.backgroundColor = 'green'
-    passGenButton.style.color = 'white'
-    passGenButton.textContent = `PASSWORD GENERATED ${clickCount} time(s)!`
-    const generatedPassword = generatePassword();
-    console.log(generatedPassword)
-});
+passGenButton.addEventListener('click', activatePassgen);
 
 // reset button
-resetButton.addEventListener('click', function() {
-    passGenButton.style.backgroundColor = 'aliceBlue'
-    passGenButton.style.color = "black";
-    passGenButton.textContent = 'Generate Password';
-    inputElement.value = '';
-    inputDisplay.textContent = '';
-    clickCount = 0;
-    console.clear();
-});
-
+resetButton.addEventListener('click', resetFields);
