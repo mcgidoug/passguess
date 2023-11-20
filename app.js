@@ -18,6 +18,8 @@ function generatePassword(){
 // ========== USER INPUT ==========
 const inputElement = document.createElement('input');
 document.body.appendChild(inputElement)
+inputElement.setAttribute('id', 'inputElement');
+inputElement.placeholder = "your guess here"
 
 // ========== PASS GEN BUTTON ==========
 const passGenButton = document.createElement('button');
@@ -44,10 +46,14 @@ inputElement.addEventListener('input', function() {
 });
 
 // passgen button
+let clickCount = 0;
+
 passGenButton.addEventListener('click', function() {
+    clickCount++;
+    console.log(clickCount)
     passGenButton.style.backgroundColor = 'green'
     passGenButton.style.color = 'white'
-    passGenButton.textContent = 'PASSWORD GENERATED!'
+    passGenButton.textContent = `PASSWORD GENERATED ${clickCount} time(s)!`
     const generatedPassword = generatePassword();
     console.log(generatedPassword)
 });
@@ -57,6 +63,9 @@ resetButton.addEventListener('click', function() {
     passGenButton.style.backgroundColor = 'aliceBlue'
     passGenButton.style.color = "black";
     passGenButton.textContent = 'Generate Password';
+    inputElement.value = '';
+    inputDisplay.textContent = '';
+    clickCount = 0;
     console.clear();
 });
 
