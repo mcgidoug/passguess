@@ -5,10 +5,7 @@ let clickCount = 0;
 // display user input in text box below
 function displayInput() {
     let userInput = inputDisplay.textContent = inputElement.value;
-    let includedCharacters = "o";
-    if(userInput.includes(includedCharacters)){
-        console.log(userInput)
-    }
+    checkCharacters(cpuDisplay);
 }
 
 // activate passgen button functionality
@@ -55,7 +52,17 @@ function colorize(text, colorCode){
 }
 
 // TODO: loop over user input & cpu pass: prompt user to add characters
-function checkCharacters(){}
+function checkCharacters(cpuDisplay){
+    let userInput = inputElement.value;
+
+    if(userInput.length < 8){
+        cpuDisplay.textContent = "Your password must be 8 characters!"
+    }
+
+    if(userInput.length >= 8){
+        cpuDisplay.textContent = "";
+    }
+}
 
 // ========== INPUTS ==========
 // input field
@@ -80,6 +87,11 @@ resetButton.setAttribute('id', 'resetButton')
 let inputDisplay = document.createElement('div');
 document.body.appendChild(inputDisplay) 
 inputDisplay.setAttribute('id', 'userInput')
+
+// cpu message display
+let cpuDisplay = document.createElement("div");
+document.body.appendChild(cpuDisplay);
+cpuDisplay.setAttribute('id', 'cpuDisplay');
 
 // ========== EVENT LISTENERS ==========
 // input field

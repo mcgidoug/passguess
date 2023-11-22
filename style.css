@@ -16,6 +16,20 @@
     white-space: pre-wrap;
 }
 
+#cpuDisplay{
+    background-color: aliceblue;
+    width: 75vw;
+    height: 15vh;
+    border-radius: 15px;
+    border: solid 1px;
+    border-color: rgb(95, 86, 86);
+    padding: 2rem;
+    margin: 2rem;
+    font-size: 1.5rem;
+    overflow: auto;
+    white-space: pre-wrap;
+}
+
 button{
     cursor: pointer;
 }
